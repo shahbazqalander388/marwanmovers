@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { X, Send, MessageSquare, CheckCircle2, Truck, Sparkles } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
-import { COMPANY_INFO } from '../data/company';
+import { COMPANY_INFO, BRAND_ASSETS } from '../data/company';
 
 export const QuoteModal = ({ isOpen, onClose, preselectedService = '' }) => {
   const { t, isRtl } = useLanguage();
@@ -79,8 +79,13 @@ export const QuoteModal = ({ isOpen, onClose, preselectedService = '' }) => {
         {/* Header */}
         <div className="bg-navy-950 text-white p-6 flex items-center justify-between">
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-xl bg-amber-500/20 text-amber-400 border border-amber-500/30 flex items-center justify-center">
-              <Truck className="w-5 h-5" />
+            <div className="w-11 h-11 rounded-xl bg-white p-0.5 border border-slate-700/80 shadow shrink-0 overflow-hidden flex items-center justify-center">
+              <img 
+                src={BRAND_ASSETS.logo.src} 
+                alt={BRAND_ASSETS.logo.alt} 
+                onError={(e) => { e.currentTarget.src = BRAND_ASSETS.logo.remoteSrc; }}
+                className="w-full h-full object-contain rounded-lg"
+              />
             </div>
             <div>
               <h3 className="text-lg font-bold text-white">

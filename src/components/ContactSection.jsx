@@ -4,7 +4,7 @@ import {
   Sparkles, Calendar, User, Truck, ShieldAlert, ArrowRight, ArrowLeft 
 } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
-import { COMPANY_INFO } from '../data/company';
+import { COMPANY_INFO, BRAND_ASSETS } from '../data/company';
 
 export const ContactSection = ({ initialService = '' }) => {
   const { t, isRtl } = useLanguage();
@@ -86,14 +86,22 @@ export const ContactSection = ({ initialService = '' }) => {
               <div className="absolute top-0 right-0 -mt-10 -mr-10 w-48 h-48 bg-brand-500/10 rounded-full blur-2xl pointer-events-none"></div>
 
               <div className="flex items-center gap-3 mb-6">
-                <div className="w-12 h-12 rounded-xl bg-amber-500/20 text-amber-400 border border-amber-500/30 flex items-center justify-center">
-                  <Truck className="w-6 h-6" />
+                <div className="w-14 h-14 rounded-2xl bg-white shadow-lg p-1 border border-slate-700/80 shrink-0 overflow-hidden flex items-center justify-center">
+                  <img 
+                    src={BRAND_ASSETS.logo.src} 
+                    alt={BRAND_ASSETS.logo.alt} 
+                    onError={(e) => { e.currentTarget.src = BRAND_ASSETS.logo.remoteSrc; }}
+                    className="w-full h-full object-contain rounded-xl"
+                  />
                 </div>
                 <div>
-                  <h3 className="text-xl font-bold text-white">
+                  <h3 className="text-xl font-bold text-white leading-tight">
                     {isRtl ? COMPANY_INFO.nameAr : COMPANY_INFO.name}
                   </h3>
-                  <span className="text-xs text-slate-400">
+                  <span className="text-xs text-amber-400 font-semibold block mt-0.5">
+                    {BRAND_ASSETS.logo.tagline}
+                  </span>
+                  <span className="text-[11px] text-slate-400 block">
                     {isRtl ? 'خدمات نقل وتغليف معتمدة في الإمارات' : 'Professional Relocation Services Across UAE'}
                   </span>
                 </div>

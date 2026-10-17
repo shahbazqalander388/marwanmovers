@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X, Globe, Phone, MessageSquare, Truck, ChevronRight } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
-import { COMPANY_INFO } from '../data/company';
+import { COMPANY_INFO, BRAND_ASSETS } from '../data/company';
 
 export const Navbar = ({ onOpenQuote }) => {
   const { language, toggleLanguage, isRtl, t } = useLanguage();
@@ -32,6 +32,7 @@ export const Navbar = ({ onOpenQuote }) => {
     { label: t.nav.about, href: '#about' },
     { label: t.nav.services, href: '#services' },
     { label: t.nav.movingTypes, href: '#types' },
+    { label: t.nav.gallery || (language === 'en' ? 'Gallery' : 'معرض الأعمال'), href: '#gallery' },
     { label: t.nav.areas, href: '#areas' },
     { label: t.nav.whyUs, href: '#why-us' },
     { label: t.nav.faq, href: '#faq' },
@@ -66,17 +67,22 @@ export const Navbar = ({ onOpenQuote }) => {
             onClick={(e) => handleLinkClick(e, '#home')}
             className="flex items-center gap-3 group focus:outline-none"
           >
-            <div className="w-12 h-12 rounded-xl bg-gradient-to-tr from-navy-900 via-blue-900 to-brand-600 flex items-center justify-center text-white shadow-md group-hover:scale-105 transition-transform duration-200">
-              <Truck className="w-6 h-6 text-amber-400" />
+            <div className="w-12 h-12 rounded-xl bg-white shadow-md border border-slate-200/80 p-0.5 overflow-hidden flex items-center justify-center group-hover:scale-105 group-hover:shadow-lg transition-all duration-200 shrink-0">
+              <img 
+                src={BRAND_ASSETS.logo.src} 
+                alt={BRAND_ASSETS.logo.alt} 
+                onError={(e) => { e.currentTarget.src = BRAND_ASSETS.logo.remoteSrc; }}
+                className="w-full h-full object-contain rounded-lg"
+              />
             </div>
             <div className="flex flex-col">
-              <span className="text-xl sm:text-2xl font-black tracking-tight text-navy-950 font-sans">
+              <span className="text-xl sm:text-2xl font-black tracking-tight text-navy-950 font-sans leading-none">
                 MARWAN
               </span>
-              <span className="text-xs sm:text-sm font-semibold tracking-wider text-brand-600 uppercase flex items-center gap-1">
+              <span className="text-[11px] sm:text-xs font-bold tracking-wider text-amber-600 uppercase flex items-center gap-1 mt-1">
                 Movers & Packers
-                <span className="inline-block w-1.5 h-1.5 rounded-full bg-amber-500"></span>
-                <span className="text-[10px] text-slate-500 lowercase">UAE</span>
+                <span className="inline-block w-1.5 h-1.5 rounded-full bg-brand-600"></span>
+                <span className="text-[10px] text-slate-500 font-semibold lowercase">UAE</span>
               </span>
             </div>
           </a>

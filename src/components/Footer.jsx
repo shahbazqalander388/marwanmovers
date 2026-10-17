@@ -1,7 +1,7 @@
 import React from 'react';
 import { Truck, Phone, Mail, Clock, MapPin, MessageSquare, Globe, ArrowUp, ShieldCheck } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
-import { COMPANY_INFO } from '../data/company';
+import { COMPANY_INFO, BRAND_ASSETS } from '../data/company';
 
 export const Footer = () => {
   const { language, toggleLanguage, isRtl, t } = useLanguage();
@@ -15,6 +15,7 @@ export const Footer = () => {
     { label: t.nav.about, href: '#about' },
     { label: t.nav.services, href: '#services' },
     { label: t.nav.movingTypes, href: '#types' },
+    { label: t.nav.gallery || (language === 'en' ? 'Gallery' : 'معرض الأعمال'), href: '#gallery' },
     { label: t.nav.areas, href: '#areas' },
     { label: t.nav.whyUs, href: '#why-us' },
     { label: t.nav.faq, href: '#faq' },
@@ -57,15 +58,23 @@ export const Footer = () => {
           {/* Col 1: Brand & Bio */}
           <div className="lg:col-span-4 space-y-4">
             <div className="flex items-center gap-3">
-              <div className="w-12 h-12 rounded-xl bg-gradient-to-tr from-brand-600 to-blue-500 flex items-center justify-center text-white shadow-md">
-                <Truck className="w-6 h-6 text-amber-400" />
+              <div className="w-14 h-14 rounded-2xl bg-white shadow-lg p-1 border border-slate-700/80 shrink-0 overflow-hidden flex items-center justify-center">
+                <img 
+                  src={BRAND_ASSETS.logo.src} 
+                  alt={BRAND_ASSETS.logo.alt} 
+                  onError={(e) => { e.currentTarget.src = BRAND_ASSETS.logo.remoteSrc; }}
+                  className="w-full h-full object-contain rounded-xl"
+                />
               </div>
               <div className="flex flex-col">
-                <span className="text-xl font-black tracking-tight text-white font-sans">
+                <span className="text-xl font-black tracking-tight text-white font-sans leading-none">
                   MARWAN
                 </span>
-                <span className="text-xs font-semibold tracking-wider text-brand-400 uppercase">
+                <span className="text-xs font-bold tracking-wider text-amber-400 uppercase mt-1">
                   Movers & Packers UAE
+                </span>
+                <span className="text-[11px] text-slate-400 font-normal">
+                  Safe Move • Better Tomorrow
                 </span>
               </div>
             </div>

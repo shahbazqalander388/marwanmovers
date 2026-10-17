@@ -191,6 +191,77 @@ export const Hero = ({ onOpenQuote }) => {
           </div>
 
         </div>
+
+        {/* Real Fleet & Operations Live Strip */}
+        <div className="mt-12 pt-8 border-t border-slate-800/80">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-6">
+            <div className="flex items-center gap-2">
+              <span className="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse"></span>
+              <span className="text-xs sm:text-sm font-bold text-white tracking-wide uppercase">
+                {isRtl ? 'أسطولنا وفريق العمل في الميدان (عمليات حقيقية)' : 'Our Fleet & Dedicated Moving Crew in Action'}
+              </span>
+            </div>
+            <a
+              href="#gallery"
+              className="inline-flex items-center gap-1.5 text-xs font-bold text-amber-400 hover:text-amber-300 transition-colors"
+            >
+              <span>{isRtl ? 'عرض ألبوم الصور الكامل' : 'Explore Full Fleet Gallery'}</span>
+              {isRtl ? <ArrowLeft className="w-3.5 h-3.5" /> : <ArrowRight className="w-3.5 h-3.5" />}
+            </a>
+          </div>
+
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4">
+            {[
+              {
+                title: isRtl ? 'نقل الفلل الفاخرة' : 'Luxury Villa Relocation',
+                src: '/images/truck-work-2.jpg',
+                remote: 'https://res.cloudinary.com/dai2g47e4/image/upload/v1792219383/WhatsApp_Image_2026-10-17_at_11.39.35_AM_1_onvoaz.jpg',
+                tag: isRtl ? 'فلل الإمارات' : 'UAE Villas'
+              },
+              {
+                title: isRtl ? 'الأسطول التجاري' : 'Commercial Fleet',
+                src: '/images/truck-work-4.jpg',
+                remote: 'https://res.cloudinary.com/dai2g47e4/image/upload/v1792219381/WhatsApp_Image_2026-10-17_at_11.39.34_AM_vlhzto.jpg',
+                tag: isRtl ? 'شاحنات مغلقة' : 'Closed Trucks'
+              },
+              {
+                title: isRtl ? 'تغليف دقيق وفقاعي' : 'Fragile Packing Care',
+                src: '/images/truck-work-5.jpg',
+                remote: 'https://res.cloudinary.com/dai2g47e4/image/upload/v1792219381/WhatsApp_Image_2026-10-17_at_11.39.36_AM_to0hwq.jpg',
+                tag: isRtl ? 'حماية فائقة' : 'Premium Wrap'
+              },
+              {
+                title: isRtl ? 'نقل سريع مجهز' : 'Prompt Transport Fleet',
+                src: '/images/truck-work-3.jpg',
+                remote: 'https://res.cloudinary.com/dai2g47e4/image/upload/v1792219382/WhatsApp_Image_2026-10-17_at_11.39.34_AM_2_wisj23.jpg',
+                tag: isRtl ? 'نقل سريع 24/7' : '24/7 Transport'
+              }
+            ].map((item, idx) => (
+              <a
+                key={idx}
+                href="#gallery"
+                className="group relative rounded-xl overflow-hidden aspect-[16/11] border border-slate-800 hover:border-amber-400/80 shadow-md transition-all duration-300 block"
+              >
+                <img
+                  src={item.src}
+                  alt={item.title}
+                  onError={(e) => { e.currentTarget.src = item.remote; }}
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                  loading="lazy"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-navy-950/90 via-navy-950/30 to-transparent flex flex-col justify-between p-2.5">
+                  <span className="self-start px-2 py-0.5 rounded text-[10px] font-bold bg-navy-950/80 text-amber-400 border border-slate-700 backdrop-blur-sm">
+                    {item.tag}
+                  </span>
+                  <span className="text-[11px] sm:text-xs font-bold text-white group-hover:text-amber-400 transition-colors line-clamp-1">
+                    {item.title}
+                  </span>
+                </div>
+              </a>
+            ))}
+          </div>
+        </div>
+
       </div>
     </section>
   );

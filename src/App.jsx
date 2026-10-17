@@ -6,6 +6,7 @@ import { Hero } from './components/Hero';
 import { About } from './components/About';
 import { Services } from './components/Services';
 import { MovingTypes } from './components/MovingTypes';
+import { Gallery } from './components/Gallery';
 import { AreasServed } from './components/AreasServed';
 import { WhyChooseUs } from './components/WhyChooseUs';
 import { HowItWorks } from './components/HowItWorks';
@@ -64,7 +65,10 @@ function MainLayout() {
         {/* 4. Moving Types Section */}
         <MovingTypes onSelectType={handleSelectServiceFromSection} />
 
-        {/* 5. Areas We Serve (All 7 Emirates & Al Ain) */}
+        {/* 5. Real Fleet & Operations Gallery (5 High-Resolution Images & Lightbox) */}
+        <Gallery />
+
+        {/* 6. Areas We Serve (All 7 Emirates & Al Ain) */}
         <AreasServed />
 
         {/* 6. Why Choose Us (8 Trust Pillars) */}

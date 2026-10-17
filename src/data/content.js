@@ -5,6 +5,7 @@ export const CONTENT = {
       about: 'About Us',
       services: 'Services',
       movingTypes: 'Moving Types',
+      gallery: 'Gallery',
       areas: 'Areas We Serve',
       whyUs: 'Why Choose Us',
       howItWorks: 'How It Works',
@@ -177,6 +178,20 @@ export const CONTENT = {
           highlights: ['Skilled Carpenters on Board', 'Velvet & Leather Furniture Care', 'No Scratches or Dents']
         },
       ]
+    },
+    gallery: {
+      badge: 'Our Work & Fleet in Action',
+      title: 'Real Relocations & Active Fleet Across UAE',
+      subtitle: 'See our professional crew, heavy-duty trucks, and careful packing in action across Dubai, Abu Dhabi, Sharjah, and beyond.',
+      filterAll: 'All Photos',
+      filterResidential: 'Residential',
+      filterVilla: 'Villa Relocations',
+      filterCommercial: 'Commercial Fleet',
+      filterPacking: 'Packing & Care',
+      viewLarger: 'Click to enlarge',
+      closeLightbox: 'Close',
+      inquireBtn: 'Inquire on WhatsApp',
+      verifiedBadge: '100% Genuine UAE Operations'
     },
     areas: {
       badge: 'Coverage Across UAE',
@@ -388,6 +403,7 @@ export const CONTENT = {
       about: 'من نحن',
       services: 'خدماتنا',
       movingTypes: 'أنواع النقل',
+      gallery: 'معرض الأعمال',
       areas: 'المناطق التي نخدمها',
       whyUs: 'لماذا تختارنا',
       howItWorks: 'كيف نعمل',
@@ -560,6 +576,20 @@ export const CONTENT = {
           highlights: ['نجارون ماهرون مرافقون للرحلة', 'حماية الأثاث الجلدي والمخمل', 'ضمان ضد الخدش والكسر']
         },
       ]
+    },
+    gallery: {
+      badge: 'أسطولنا وفريقنا في الميدان',
+      title: 'معرض أعمال النقل والأسطول المجهز في الإمارات',
+      subtitle: 'شاهد فريقنا المحترف وشاحناتنا المجهزة ومواد التغليف الفاخرة أثناء تنفيذ عمليات النقل في دبي وأبوظبي والشارقة وكافة الإمارات.',
+      filterAll: 'جميع الصور',
+      filterResidential: 'نقل سكني وسريع',
+      filterVilla: 'نقل الفلل الفاخرة',
+      filterCommercial: 'الأسطول التجاري',
+      filterPacking: 'التغليف وحماية الزجاجيات',
+      viewLarger: 'انقر لتكبير الصورة',
+      closeLightbox: 'إغلاق',
+      inquireBtn: 'استفسر عبر واتساب',
+      verifiedBadge: 'عمليات حقيقية وموثقة في الإمارات'
     },
     areas: {
       badge: 'تغطية شاملة للإمارات',
